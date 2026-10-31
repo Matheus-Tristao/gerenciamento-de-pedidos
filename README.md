@@ -111,3 +111,25 @@ npm test
 ```
 
 Os testes usam Jest e Supertest e cobrem criação válida/inválida, listagem, consulta, atualizações de status, transições proibidas e JSON malformado. Cada teste limpa o armazenamento em memória para preservar o isolamento.
+
+## Evidências do Postman
+
+Importe `postman/Pedidos.postman_collection.json` no Postman e execute as requisições nesta ordem, com a API iniciada e sem pedidos cadastrados:
+
+1. `01-criacao.png`: POST válido; esperado `201`.
+2. `02-validacao.png`: POST com cliente vazio; esperado `400`.
+3. `03-listagem.png`: GET da lista; esperado `200`.
+4. `04-consulta-inexistente.png`: GET de um ID inexistente; esperado `404`.
+5. `05-atualizacao.png`: PATCH do pedido 1 de `recebido` para `cancelado`; esperado `200`.
+
+As capturas correspondentes estão na pasta `evidencias/`. Elas devem mostrar método, URL, corpo da requisição quando aplicável, resposta e código HTTP. Se refizer uma captura, salve a imagem atualizada nessa pasta.
+
+## GitHub e entrega
+
+Repositório: https://github.com/Matheus-Tristao/gerenciamento-de-pedidos
+
+Entregue ao professor o link do repositório e seu RA. O histórico publicado contém os commits do projeto; não crie commits artificiais para completar a quantidade. Não publique `node_modules`, arquivos `.env`, senhas ou tokens.
+
+## Uso de IA
+
+A inteligência artificial foi utilizada como apoio para revisar a aderência do projeto aos requisitos, melhorar a documentação e ampliar os testes automatizados. Uma sugestão aceita foi reforçar os testes das transições válidas até `entregue` e das tentativas de alteração de IDs inválidos; isso ajuda a verificar regras que não estavam cobertas pelos testes iniciais. Também foi ajustada a requisição de atualização do Postman para corresponder ao cenário de cancelamento exibido na captura. O código e os resultados devem ser revisados e compreendidos pelo estudante antes da entrega.
