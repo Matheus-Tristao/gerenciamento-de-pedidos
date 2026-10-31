@@ -111,23 +111,3 @@ npm test
 ```
 
 Os testes usam Jest e Supertest e cobrem criação válida/inválida, listagem, consulta, atualizações de status, transições proibidas e JSON malformado. Cada teste limpa o armazenamento em memória para preservar o isolamento.
-
-## Evidências do Postman
-
-Importe `postman/Pedidos.postman_collection.json` no Postman e execute os cenários nesta ordem:
-
-1. `01-criacao.png`: POST válido e `201`.
-2. `02-validacao.png`: POST com cliente vazio e `400`.
-3. `03-listagem.png`: GET da lista e `200`.
-4. `04-consulta-inexistente.png`: GET ID 999 e `404`.
-5. `05-atualizacao.png`: PATCH ID 1 de `recebido` para `cancelado` e `200`.
-
-**Tire capturas reais da sua execução e salve na pasta `evidencias/` antes de entregar.** Em cada print, mostre método, URL, body (quando houver), resposta e código HTTP. A coleção facilita os testes, mas não substitui os prints.
-
-## GitHub e entrega
-
-Publique o código, README, `package.json`, `package-lock.json` e os prints. Não envie `node_modules`, `.env`, senhas ou tokens. A atividade exige **pelo menos cinco commits significativos e reais** feitos durante o desenvolvimento. Siga as instruções deste README e entregue ao professor o link do repositório e seu RA.
-
-## Uso de IA
-
-Foi utilizada inteligência artificial como apoio à estruturação inicial da API, e na documentacao
