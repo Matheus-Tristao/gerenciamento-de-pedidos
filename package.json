@@ -1,0 +1,15 @@
+{
+  "name": "api-gerenciamento-de-pedidos",
+  "version": "1.0.0",
+  "description": "API REST de gerenciamento de pedidos - projeto prático avaliativo",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage --runInBand"
+  },
+  "engines": {"node": ">=18"},
+  "dependencies": {"express": "^4.21.2"},
+  "devDependencies": {"jest": "^29.7.0", "supertest": "^7.0.0"}
+}
