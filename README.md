@@ -120,13 +120,13 @@ Importe `postman/Pedidos.postman_collection.json` no Postman e execute os cenár
 2. `02-validacao.png`: POST com cliente vazio e `400`.
 3. `03-listagem.png`: GET da lista e `200`.
 4. `04-consulta-inexistente.png`: GET ID 999 e `404`.
-5. `05-atualizacao.png`: PATCH ID 1 de `recebido` para `em_preparacao` e `200`.
+5. `05-atualizacao.png`: PATCH ID 1 de `recebido` para `cancelado` e `200`.
 
 **Tire capturas reais da sua execução e salve na pasta `evidencias/` antes de entregar.** Em cada print, mostre método, URL, body (quando houver), resposta e código HTTP. A coleção facilita os testes, mas não substitui os prints.
 
 ## GitHub e entrega
 
-Publique o código, README, `package.json`, `package-lock.json` e os prints. Não envie `node_modules`, `.env`, senhas ou tokens. A atividade exige **pelo menos cinco commits significativos e reais** feitos durante o desenvolvimento. Veja `GUIA_ENTREGA.md` para orientação e entregue ao professor o link do repositório e seu RA.
+Publique o código, README, `package.json`, `package-lock.json` e os prints. Não envie `node_modules`, `.env`, senhas ou tokens. A atividade exige **pelo menos cinco commits significativos e reais** feitos durante o desenvolvimento. Siga as instruções deste README e entregue ao professor o link do repositório e seu RA.
 
 ## Uso de IA
 
