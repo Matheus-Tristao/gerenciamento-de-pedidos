@@ -91,7 +91,7 @@
         "url": "http://localhost:3000/pedidos/1/status",
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"status\": \"em_preparacao\"\n}",
+          "raw": "{\n  \"status\": \"cancelado\"\n}",
           "options": {
             "raw": {
               "language": "json"
