@@ -46,6 +46,11 @@ describe('API de Gerenciamento de Pedidos', () => {
     expect(resposta.body.erro).toMatch(/não encontrado/);
   });
 
+  test.each(['abc', '0', '9007199254740992'])('GET retorna 404 para ID inválido (%s)', async id => {
+    const resposta = await request(app).get(`/pedidos/${id}`);
+    expect(resposta.status).toBe(404);
+  });
+
   test('PATCH atualiza status com transição válida (200)', async () => {
     await request(app).post('/pedidos').send(exemplo);
     const resposta = await request(app).patch('/pedidos/1/status').send({ status: 'em_preparacao' });
@@ -82,6 +87,24 @@ describe('API de Gerenciamento de Pedidos', () => {
     await request(app).patch('/pedidos/1/status').send({ status: 'cancelado' });
     const resposta = await request(app).patch('/pedidos/1/status').send({ status: 'enviado' });
     expect(resposta.status).toBe(400);
+  });
+
+  test('PATCH percorre as transições válidas até a entrega e mantém o status final', async () => {
+    await request(app).post('/pedidos').send(exemplo);
+
+    for (const status of ['em_preparacao', 'enviado', 'entregue']) {
+      const resposta = await request(app).patch('/pedidos/1/status').send({ status });
+      expect(resposta.status).toBe(200);
+      expect(resposta.body.status).toBe(status);
+    }
+
+    const tentativaDeAlteracao = await request(app)
+      .patch('/pedidos/1/status')
+      .send({ status: 'cancelado' });
+    expect(tentativaDeAlteracao.status).toBe(400);
+
+    const pedido = await request(app).get('/pedidos/1');
+    expect(pedido.body.status).toBe('entregue');
   });
 
   test('JSON malformado retorna 400', async () => {
